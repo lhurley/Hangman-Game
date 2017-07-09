@@ -485,6 +485,5 @@
   var hangman = new HangmanJS();
   hangman.init();
 
-});
 
 
