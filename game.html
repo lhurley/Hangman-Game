@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,15 +20,17 @@
 <embed src="assets/audio/theme.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
 
 </head>
-
 <body>
-  <nav class="navbar navbar-default">
+
+
+<!-- Nav -->
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-    <audio src="assets/audio/theme.mp3" id="audio" loop autoplay></audio>
-    <i class="glyphicon glyphicon-play-circle b-play" id="play" onclick="play()"></i>
-          <script>
-          function play() {
+        <audio src="assets/audio/theme.mp3" id="audio" loop autoplay></audio>
+        <i class="glyphicon glyphicon-play-circle b-play" id="play" onclick="play()"></i>
+        <script>
+            function play() {
                   var audio = document.getElementById('audio');
                   if (audio.paused) {
                       audio.play();
@@ -39,69 +42,66 @@
                       $('#play').addClass('glyphicon-play-circle')
                       $('#play').removeClass('glyphicon-pause')
                   }
-              }
-          </script>
+            }
+        </script>
    </div>
-   </nav>
+</nav>
 
 
+<!-- Header -->
 <div class="row">
 <div class="col-md-1"></div>
-<div class="col-md-10">
-   <div class="hangman"><h1>Portlandia Hangman</h1></div>
-   </div>
-   </div>
-   <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <div class="hangman"><h1>Portlandia Hangman</h1></div>
+    </div>
+<div class="col-md-1"></div>
 
-    <!-- Main Content -->
+
+<!-- Category Tagline -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <p id="rules">
+        Category : <span class="category">Things Made Famous By The TV Show</span>
+        <br><span id="warningMessage"></span>
+        </p>
+    </div>
+</div>
+
+
+<!-- portlandia image -->
+<div class="row">
+<div class="col-md-8">
+<img class= "car" src="assets/img/game.gif" width="600px"/>
+</div>
+
+
+<!-- panel: keyboard & scorekeeper -->
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-body">
+             <div id="letterBtn"></div>
+                    <div id="loadingMessage"></div>
+                    <div id="winLose">
+                    <div id="gameWord"><b>Word : &nbsp;&nbsp;<span id="word"></span></b></div>
+                    <br>
+                    <div>Times You Were a Winner : <span id="winCount"></span>!</div>
+                    <div>Times You Were a Loser : <span id="loseCount"></span>&#161;</div>
+                    <div>Leftover Patience : <span id="lives">10</span> more tries</div>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+  <div class = "navbar navbar-default navbar-fixed-bottom">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p id="rules">
-                    Category : <span class="category">Character Names</span>
-                    <br><span id="warningMessage"></span>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-7">
-                <div class="row ">
-                    <div class="col-md-12">
-                        <div class="col-md-5 col-sm-4">
-                            <div id="hangman-img-holder">
-                                <img src="assets/images/animals.png" alt="hangman image" height="150" width="190" id="hangman-img">
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-sm-8 margin-top-20 ">
-                            <div id="loadingMessage"></div>
-                            <div id="winLose">
-                                <div>Wins :
-                                    <sapn id="winCount"></span>
-                                </div>
-                                <div>Losses : <span id="loseCount"></span></div>
-                            </div>
-                            <div>Number of Lives Left : <span id="lives">10</span></div>
-                            <div id="gameWord"><b>Word : &nbsp;&nbsp;<span id="word"></span></b></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- letter button -->
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div id="letterBtn"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <p class = "navbar-text">&copy; 2017 Lizzie Hurley</p>
     </div>
-      <footer>
-             &copy; 2017 Lizzie Hurley
-         </footer>
-            </div>
-        </div>
-    </div>
-</body>
+  </div>
 
+
+</body>
 </html>

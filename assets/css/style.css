@@ -7,6 +7,10 @@ body {
 
 /* content */
 
+.navbar {
+    border-bottom: none;
+}
+
 .margin-top-20 {
     margin-top: 20px;
 }
@@ -27,30 +31,35 @@ body {
 }
 
 #rules {
-    padding-bottom: 5px;
-    border-bottom: 1px solid #4aaaa5;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f79961;
 }
 
 #word {
-    font-size: 1.7em;
+    font-size: 20pt;
+}
+
+#gameWord, #word, #rules {
+    color: #f79961;
 }
 
 .category {
-    color: #3399ff;
+    color: #c17249;
 }
 
 .load {
-    color: #ff4000;
+    color: #f8e21b;
 }
 
 .fa-spinner {
     font-size: 25px;
     margin-left: 20px;
+    color: #f79961;
 }
 
 .message {
     font-size: 25px;
-    color: #40ff00;
+    color: #f79961;
     font-weight: bold;
 }
 
@@ -78,36 +87,39 @@ body {
 
 
 h1 {
-    font-size: 5em;
+    font-size: 70px;
     text-align: center;
     font-family: 'Allerta Stencil', sans-serif;
-    color: #f8e21b;
+    color: #f79961;
 }
 
 
 /* letter buttons */
 
+
+#letterBtn {
+    margin-left: -34px;
+}
+
 .panel .panel-body {
-    padding: 5px 0px 0px 5px;
-    background-color: #222;
+    padding: 12px;
+    background-color: white;
 }
 
 .panel {
-    border: 1px solid #444;
-    margin-right: 5px;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 80px;
 }
 
 .liActive,
 .liDisabled {
+    margin: 6px;
     width: 26px;
     height: 26px;
     line-height: 26px;
     cursor: pointer;
-    color: #000;
-    margin: 5px;
     text-align: center;
-    font-weight: bold;
-    border: 1px solid #5bbbb9;
+    font-weight: 200;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     display: inline-block;
@@ -119,29 +131,24 @@ h1 {
 }
 
 .liActive {
-    background-color: #3399ff;
+    background-color: #f8e21b;
+    border: 1px solid #f8e21b;
+    color: white;
 }
 
 .liDisabled {
-    background-color: #888;
-    border: 1px solid #898;
+    background-color: #f8f8f8;
+    border: 1px solid #f8f8f8;
+    color: #e7e7e7;
 }
 
 
 /* footer */
 
-footer {
-    position: absolute;
-    text-align: center;
-    background-color: #f8e21b;
-    color: white;
-    margin-top: 20px;                                
-    bottom: -120px;
-    width: 100%;
-    height: 55px;
-    padding-top: 1.5em;
-    font-size: 12px;
+.navbar-default .navbar-text {
+    color: #c17249;
 }
+
 
 /* media query */
 
@@ -165,9 +172,6 @@ footer {
     .panel .panel-body {
         padding: 12px 0px 0px 12px;
         background-color: #222;
-    }
-    #hangman-img-holder {
-        margin-top: 10px;
     }
     #rules {
         text-align: left;
