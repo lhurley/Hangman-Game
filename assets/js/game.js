@@ -36,7 +36,7 @@ var hangman = {
     gameOver: false,
     winOrLose: false,
 
-// initalies hangman properties
+    // initalies hangman properties
     init: function() {
         this.lives = 10;
         this.userInputs = [];
@@ -60,48 +60,48 @@ var hangman = {
         document.querySelector("#hangman-img").src = 'assets/images/animals.png';
     },
 
-// proceed to hangman rules if user input is an alphabet
+    // proceed to hangman rules if user input is an alphabet
     startGmae: function() {
         if (this.gameOver === false && this.isAlphabet()) {
             this.checkRules();
         }
     },
 
-// validate against game rules
-checkRules: function() {
-    if (!this.checkInputAlreadyTried()) { // if letter is not tried
+    // validate against game rules
+    checkRules: function() {
+        if (!this.checkInputAlreadyTried()) { // if letter is not tried
             this.disableLetterBtn();
             this.pushToTriedValues(); // array for tried values
             //this.printUserTriedInputs(); // prit user input
 
-        if (!this.checkWordContainsUserInput()) { // if user entered letter is not in the word
+            if (!this.checkWordContainsUserInput()) { // if user entered letter is not in the word
                 this.printLivesLeft();
                 this.showHangmanImage();
                 this.winLoseCountAndAudioOnGameEnd(); //if lives zero set audio and winCount                
                 this.startNewOnGameOver();
 
-        } else { // if user entered letter is in the word
+            } else { // if user entered letter is in the word
                 this.createWordWithMatchedLetters();
                 this.winLoseCountAndAudioOnGameEnd(); // if user answer is correct
                 this.startNewOnGameOver();
                 document.querySelector("#word").innerHTML = this.wordWithMatchedLetters;
+            }
         }
-    }
-},
+    },
 
-// generate word randomly   
-guessAWord: function() {
+    // generate word randomly   
+    guessAWord: function() {
         var computerRandomNumber = Math.floor(Math.random() * this.words.length);
         return this.words[computerRandomNumber];
         console.log(this.computerWord);
-},
+    },
 
-//calculate word length
-calculateWordLength: function() {
+    //calculate word length
+    calculateWordLength: function() {
         return this.computerWord.length;
-},
+    },
 
-// create string with all dashes to print on initial load
+    // create string with all dashes to print on initial load
     createInitialWordToPrint: function() {
         var word = "";
         for (var i = 0; i < this.computerWordLength; i++) {
@@ -111,7 +111,7 @@ calculateWordLength: function() {
         return word;
     },
 
-// check to see if user already tried the input
+    // check to see if user already tried the input
     checkInputAlreadyTried: function() {
         if (this.userInputs.length !== 0) {
             var result = this.userInputs.indexOf(this.userInput) < 0 ? false : true;
@@ -121,18 +121,18 @@ calculateWordLength: function() {
         }
     },
 
-// array for tried values
+    // array for tried values
     pushToTriedValues: function() {
         this.userInputs.push(this.userInput);
     },
 
-//check if input is a letter
+    //check if input is a letter
     isAlphabet: function() {
         var pattern = /[a-z]/i;
         return this.userInput.match(pattern);
     },
 
-//check if word contains the letter user entered
+    //check if word contains the letter user entered
     checkWordContainsUserInput: function() {
         var contains = false;
         for (var i = 0; i < this.computerWordLength; i++) {
@@ -143,55 +143,64 @@ calculateWordLength: function() {
         return contains;
     },
 
-//replace dashes with letters
-createWordWithMatchedLetters: function() {
-    for (var i = 0; i < this.computerWordLength; i++) {
-        if (this.computerWord.charAt(i).toUpperCase() == this.userInput) {
-            if (i === 0) {
-                this.wordWithMatchedLetters = this.wordWithMatchedLetters.substring(0, i * 2) +
-                    this.userInput.toUpperCase() + this.wordWithMatchedLetters.substring((i * 2 + 1));
-            } else {
-                this.wordWithMatchedLetters = this.wordWithMatchedLetters.substring(0, i * 2) +
-                    this.userInput.toLowerCase() + this.wordWithMatchedLetters.substring((i * 2 + 1));
-            }
+    //replace dashes with letters
+    createWordWithMatchedLetters: function() {
+        for (var i = 0; i < this.computerWordLength; i++) {
+            if (this.computerWord.charAt(i).toUpperCase() == this.userInput) {
+                if (i === 0) {
+                    this.wordWithMatchedLetters = this.wordWithMatchedLetters.substring(0, i * 2) +
+                        this.userInput.toUpperCase() + this.wordWithMatchedLetters.substring((i * 2 + 1));
+                } else {
+                    this.wordWithMatchedLetters = this.wordWithMatchedLetters.substring(0, i * 2) +
+                        this.userInput.toLowerCase() + this.wordWithMatchedLetters.substring((i * 2 + 1));
+                }
                 this.matchedLettersCount++;
+            }
         }
-    }
-},
+    },
 
-// print word
-printWord: function(word) {
-    document.querySelector("#word").innerHTML = word;
-},
+    // print word
+    printWord: function(word) {
+        document.querySelector("#word").innerHTML = word;
+    },
 
-// print number of lives left
-printLivesLeft: function() {
-    this.lives--;
-    document.querySelector("#lives").innerHTML = this.lives;
-},
+    // print user tried letters
+    /*printUserTriedInputs: function() {
+        var triedInputs = "";
+        for (var i = 0; i < this.userInputs.length; i++) {
+            triedInputs += " " + hangman.userInputs[i] + " ";
+        }
+        document.querySelector("#userInputs").innerHTML = triedInputs;
+    },*/
 
-// increment win/lose count by one and play audio 
-winLoseCountAndAudioOnGameEnd: function() {
-    if (this.lives === 0) {
-        this.playAudio('assets/sounds/gameLost.mp3');
-        loseCount++;
-        this.gameOver = true;
-        this.winOrLose = false;
-    }
+    // print number of lives left
+    printLivesLeft: function() {
+        this.lives--;
+        document.querySelector("#lives").innerHTML = this.lives;
+    },
 
-    if (this.matchedLettersCount == this.computerWordLength) {
-        this.playAudio('assets/sounds/gameWon.mp3');
-        winCount++;
-        this.winOrLose = true;
-        this.gameOver = true;
-    }
-},
+    // increment win/lose count by one and play audio 
+    winLoseCountAndAudioOnGameEnd: function() {
+        if (this.lives === 0) {
+            this.playAudio('assets/sounds/gameLost.mp3');
+            loseCount++;
+            this.gameOver = true;
+            this.winOrLose = false;
+        }
 
-// starts new game
-startNewOnGameOver: function() {
-    if (this.gameOver === true) {
-        var html = "";
-        document.querySelector("#winLose").style.display = 'none';
+        if (this.matchedLettersCount == this.computerWordLength) {
+            this.playAudio('assets/sounds/gameWon.mp3');
+            winCount++;
+            this.winOrLose = true;
+            this.gameOver = true;
+        }
+    },
+
+    // starts new game
+    startNewOnGameOver: function() {
+        if (this.gameOver === true) {
+            var html = "";
+            document.querySelector("#winLose").style.display = 'none';
 
             if (this.winOrLose) {
                 html += '<div class="message">You Won !!!</div>';
@@ -201,36 +210,51 @@ startNewOnGameOver: function() {
             html += '<div class="load">New Word will load in 4 seconds. ';
             html += ' <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> </div>';
 
-        document.querySelector("#loadingMessage").innerHTML = html;
-        timeOut = setTimeout(this.loadGame.bind(this), 4000);
-    }
-},
+            document.querySelector("#loadingMessage").innerHTML = html;
+            timeOut = setTimeout(this.loadGame.bind(this), 4000);
+        }
+    },
 
-// load new game
-loadGame: function() {
-    var t = this;
-    for (var i = 0; i < this.letters.length; i++) {
-        var id = "#li-" + this.letters[i];
-        document.querySelector(id).className = "liActive";
-    };
-    this.init();
-},
+    // load new game
+    loadGame: function() {
+        var t = this;
+        for (var i = 0; i < this.letters.length; i++) {
+            var id = "#li-" + this.letters[i];
+            document.querySelector(id).className = "liActive";
+        };
+        this.init();
+    },
 
 
-// when user clicks letter Buttons 
-letterClick: function(letter) {
-    this.userInput = letter.toUpperCase();
-    this.disableLetterBtn();
-    this.startGmae();
-},
+    playAudio: function(gameAudio) {
+        var audio = new Audio(gameAudio);
+        audio.play();
+        audio.volume = .5;
+    },
 
-// disables letters that user has entered
-disableLetterBtn: function() {
-    var id = "#li-" + this.userInput;
-    document.querySelector(id).className = "liDisabled"
-},
 
-// add letter buttons/key board
+    showHangmanImage: function() {
+        if (this.lives != 10) {
+            document.querySelector("#hangman-img").src = "assets/images/hangman-" + (9 - this.lives) + ".png";
+        } else {
+            document.querySelector("#hangman-img").src = "assets/images/animals.png";
+        }
+    },
+
+    // when user clicks letter Buttons 
+    letterClick: function(letter) {
+        this.userInput = letter.toUpperCase();
+        this.disableLetterBtn();
+        this.startGmae();
+    },
+
+    // disables letters that user has entered
+    disableLetterBtn: function() {
+        var id = "#li-" + this.userInput;
+        document.querySelector(id).className = "liDisabled"
+    },
+
+    // add letter buttons/key board
     addLetterButtons: function() {
         // add letter buttons
         var html = "<ul>";
