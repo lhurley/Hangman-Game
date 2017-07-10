@@ -90,7 +90,7 @@ h1 {
     font-size: 70px;
     text-align: center;
     font-family: 'Allerta Stencil', sans-serif;
-    color: #f79961;
+    color: #f8e21b;
 }
 
 
@@ -145,11 +145,25 @@ h1 {
 
 /* footer */
 
-.navbar-default .navbar-text {
-    color: #c17249;
+.navbar-custom .navbar-text {
+    color: #f79961;
 }
 
+.navbar-custom {
+    border-top: none;
+    background-color: #c17249;
+}
 
+.btn-default {
+    color: #ddd;
+    border-color: white;
+}
+
+.btn-default:hover {
+    color: white;
+    background-color: #f8e21b;
+    border-color: #f8e21b;
+}
 /* media query */
 
 @media (min-width: 1200px) {
@@ -171,7 +185,7 @@ h1 {
     }
     .panel .panel-body {
         padding: 12px 0px 0px 12px;
-        background-color: #222;
+        background-color: white;
     }
     #rules {
         text-align: left;
