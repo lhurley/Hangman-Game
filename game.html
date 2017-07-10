@@ -14,22 +14,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+
+<embed src="assets/audio/theme.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
+
 </head>
 
 <body>
-    <div class="container">
-        <!--  header -->
-        <nav class="navbar navbar-default">
-            <h1>Hangman</h1>
-        </nav>
-    </div>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <audio src="assets/audio/theme.mp3" id="audio" loop autoplay></audio>
+    <i class="glyphicon glyphicon-play-circle b-play" id="play" onclick="play()"></i>
+          <script>
+          function play() {
+                  var audio = document.getElementById('audio');
+                  if (audio.paused) {
+                      audio.play();
+                      $('#play').removeClass('glyphicon-play-circle')
+                      $('#play').addClass('glyphicon-pause')
+                  }else{
+                      audio.pause();
+                      audio.currentTime = 0
+                      $('#play').addClass('glyphicon-play-circle')
+                      $('#play').removeClass('glyphicon-pause')
+                  }
+              }
+          </script>
+   </div>
+   </nav>
+
+
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10">
+   <div class="hangman"><h1>Portlandia Hangman</h1></div>
+   </div>
+   </div>
+   <div class="col-md-1"></div>
+
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <p id="rules">
-                    Press Any Letter to Start.
-                    <br> Category : <span class="category"> Animals and Birds</span>
+                    Category : <span class="category">Character Names</span>
                     <br><span id="warningMessage"></span>
                 </p>
             </div>
@@ -67,12 +96,9 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <footer>
-                    &copy; Copyright 2016 Neethu Jose
-                </footer>
+      <footer>
+             &copy; 2017 Lizzie Hurley
+         </footer>
             </div>
         </div>
     </div>

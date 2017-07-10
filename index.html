@@ -12,7 +12,7 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Syncopate:400,700" rel="stylesheet">
 
 <embed src="assets/audio/portland.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
@@ -27,7 +27,8 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-    <audio src="assets/audio/portland.mp3" id="audio" controls autoplay></audio>
+    <audio src="assets/audio/portland.mp3" id="audio" loop autoplay></audio>
+    <i class="glyphicon glyphicon-play-circle b-play" id="play" onclick="play()"></i>
           <script>
           function play() {
                   var audio = document.getElementById('audio');
@@ -45,12 +46,18 @@
           </script>
    </div>
    </nav>
-    
-  
+   <img class= "house" src="assets/img/background.png" width="122px" height="118px" />
+
+
+</div>
   <div class="game-section menu show">
     <div class="site-container">
       <div class="content">
-        <a href="game.html" class="button" id="play-game">Play Game</a>
+        <div class=jumbotron>
+        <h1>The dream of the '90s<br>– when people still<br> played Hangman –<br>is alive in Portland!</h1>
+        <img class= "car" src="assets/img/opened.gif" width="400px"/>
+        </div>
+        <a href="game.html" class="button" id="play-game">Let's Go</a>
       </div>
     </div>
   </div>

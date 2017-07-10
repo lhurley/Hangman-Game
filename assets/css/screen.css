@@ -1,22 +1,24 @@
-.navbar-default {
-  background-color: #eef442;
-}
-
-
-html, body {
-  height: 100%;
-}
-
 body {
   color: white;
   font-size: 15px;
   overflow: hidden;
-  position: relative;
-  background: #179BE0;
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
-  min-width: 720px;
-  min-height: 720px;
+}
+
+.glyphicon {
+	padding-top: 15px;
+	padding-left: 5px;
+	color: #f8e21b;
+}
+
+.house {
+	margin-top: -1.5em;
+    position:absolute;
+    background:url(../img/background.png);
+    background-repeat:no-repeat;
+    width:1800px;
+    height: 800px;
 }
 
 input {
@@ -24,6 +26,19 @@ input {
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.game-section.menu .content .jumbotron {
+	background: none;
+}
+
+.game-section.menu .content .jumbotron h1 {
+	font-family: 'Allerta Stencil', sans-serif;
+	font-size: 20pt;
+	line-height: 28pt;
+	color: white;
+	text-align: center;
+	margin-bottom: 2em;
 }
 
 .game-section {
@@ -36,6 +51,7 @@ input {
   transition: all 0.25s ease;
 }
 
+
 .site-container {
   top: 50%;
   left: 50%;
@@ -47,15 +63,19 @@ input {
 }
 
 .game-section.menu .content {
-  width: 300px;
+  width: 400px;
   height: 260px;
   margin: 220px auto;
+  margin-top: -3em;
 }
 
 .game-section.menu .content .button {
   height: 60px;
+  width: 200px;
   display: block;
-  background: #1586C1;
+  background: #f8f8f8;
+  margin-top: -30px;
+  margin-left: 100px;
   margin-bottom: 20px;
   text-decoration: none;
   -webkit-border-radius: 5px;
@@ -65,8 +85,9 @@ input {
   border-radius: 5px;
   text-align: center;
   line-height: 60px;
-  color: white;
-  font-weight: 700;
+  color: #f8e21b;
+  font-family: helvetica;
+  font-weight: 500;
   font-size: 1.375em;
   -webkit-transition: background 0.25s ease;
   -moz-transition: background 0.25s ease;
@@ -74,5 +95,6 @@ input {
   transition: background 0.25s ease;
 }
 .game-section.menu .content .button:hover {
-  background: #106693;
+  background: #f8e21b;
+  color: white;
 }
