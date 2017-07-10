@@ -1,102 +1,59 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>HangmanJS</title>
 
-  <link rel="stylesheet" href="css/screen.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/hangman.js"></script>
+  <link rel="stylesheet" href="assets/css/screen.css">
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/hangman.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Syncopate:400,700" rel="stylesheet">
+
+<embed src="assets/audio/portland.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
+
+<meta charset="utf-8">
+<title>Portlandman-Game</title>
 </head>
+
+
 <body>
-  <div class="game-section credits" id="credits">
-    <div class="site-container">
-      <div class="menu-bar">
-        <a href="#" class="js-to-menu link" data-from="credits">Back</a>
-        <a href="#" class="js-to-menu logo" data-from="credits">
-          <img src="img/logo.png">
-        </a>
-      </div>
-      <div class="clear"></div>
-      <div class="col left-col">
-        <h2>HangmanJS Credits</h2>
-        <p>HangmanJS was written as part of my college course in 2013. I thought this would be a good opportunity to make a good Hangman game in JS and release it on Github.</p>
-        <ul>
-          <li>Open Sans font from Google Web Fonts</li>
-          <li>Code written by <a href="http://twitter.com/andrewhathaway" target="_blank">Andrew Hathaway</a></li>
-          <li>License can be viewed in the LICENSE file on <a href="http://github.com/andrewhathaway/hangmanjs">Github</a></li>
-        </ul>
-      </div>
-      <div class="col right-col">
-        <img src="http://en.gravatar.com/avatar/c0622753106e4a7b04a9b932add37d9c?s=300">
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
+  
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <audio src="assets/audio/portland.mp3" id="audio" controls autoplay></audio>
+          <script>
+          function play() {
+                  var audio = document.getElementById('audio');
+                  if (audio.paused) {
+                      audio.play();
+                      $('#play').removeClass('glyphicon-play-circle')
+                      $('#play').addClass('glyphicon-pause')
+                  }else{
+                      audio.pause();
+                      audio.currentTime = 0
+                      $('#play').addClass('glyphicon-play-circle')
+                      $('#play').removeClass('glyphicon-pause')
+                  }
+              }
+          </script>
+   </div>
+   </nav>
+    
+  
   <div class="game-section menu show">
     <div class="site-container">
       <div class="content">
-        <img src="img/logo.png" class="logo">
-        <a href="#" class="button" id="play-game">Play Game</a>
-        <a href="#" class="button" id="view-credits">View Credits</a>
+        <a href="game.html" class="button" id="play-game">Play Game</a>
       </div>
     </div>
   </div>
-  <div class="game-section game" id="game-stage">
-    <div class="site-container">
-      <div class="menu-bar">
-        <a href="#" class="js-to-menu link" data-from="game">Back</a>
-        <a href="#" class="js-to-menu logo" data-from="game">
-          <img src="img/logo.png">
-        </a>
-      </div>
-      <div class="game-content">
-        <div class="left-game-col">
-          <div class="word-info">
-            <h2>Guess the word!</h2>
-            <ul class="word-characters"></ul>
-            <div class="clear"></div>
-            <div class="enter-char">
-              <h3>Enter a character</h3>
-              <input type="text" id="enter-char-input" class="input" placeholder="Guess a Character" maxlength="1">
-            </div>
-          </div>
-          <div class="game-information">
-            <h2>Game Information</h2>
-            <ul>
-              <li>
-                <p>The word is <span class="word-length bold">0</span> characters long.</p>
-              </li>
-              <li>
-                <p>You have <span class="attempts-left bold">8</span> attempts left.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="right-game-col">
-          <canvas id="character" width="290" height="400"></canvas>
-        </div>
-        <div class="clear"></div>
-        <div class="used-words">
-          <h2>Guessed letters</h2>
-          <ul class="alphabet" id="alphabet">
-          </ul>
-        </div>
-      </div>
-      <div class="overlay" id="overlay">
-        <div class="modal failed">
-          <h2>You've died!</h2>
-          <p>Well done there, you've managed to get yourself hanged.</p>
-          <a href="#" class="right js-to-menu" data-from="game">Home</a>
-        </div>
-        <div class="modal success">
-          <h2>You survived!</h2>
-          <p>Well done there, you've manage to stay alive! Go ahead and play again!</p>
-          <a href="#" class="right js-to-menu" data-from="game">Home</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </body>
 </html>
